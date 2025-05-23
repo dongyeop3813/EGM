@@ -1,0 +1,15 @@
+_target_: energy.rbm.GaussianBernoulliRBM
+
+# RBM parameters
+n_visible: 2
+n_hidden: 3
+sigma: 1.0
+w_coeff: 0.01
+
+# Sampling parameters
+num_samples: 100000
+num_chains: 100
+burn_in: 10000
+thinning: 100
+
+device: "cuda"

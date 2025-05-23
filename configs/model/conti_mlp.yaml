@@ -1,0 +1,25 @@
+_target_: architectures.conti_drift.JointPolicy
+_partial_: true
+
+# Network parameters
+s_emb_dim: 64
+t_emb_dim: 64
+hidden_dim: 64
+num_layers: 2
+zero_init: false
+
+# State encoding
+state_encoding:
+  _target_: architectures.conti_drift.StateEncoding
+  _partial_: true
+
+  hidden_dim: ${model.hidden_dim}
+  s_emb_dim: ${model.s_emb_dim}
+
+# Time encoding
+time_encoding:
+  _target_: architectures.conti_drift.TimeEncoding
+
+  harmonics_dim: ${model.t_emb_dim}
+  t_emb_dim: ${model.t_emb_dim}
+  hidden_dim: ${model.hidden_dim}

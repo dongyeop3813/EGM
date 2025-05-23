@@ -1,0 +1,61 @@
+# @package _global_
+
+defaults:
+  - /model: multimodal
+  - /flow_model: multimodal_flow
+  - /energy: rbm_six_modes
+  - /optim: adam
+  - /optim@optim_flow: adam
+  - _self_
+
+train_fn:
+  _target_: train.befm_multimodal.train
+
+conti_prob_path: "VE"
+
+solver_start_time: 0.01
+conti_prior_sigma: 1.0
+ve_sigma_max: 2.0
+ve_sigma_min: 0.01
+
+lr_scheduler:
+  eta_min: 1e-4
+
+num_steps: 1000
+
+clip_flow_est: 1000.0
+clip_cont_vel: ${clip_est.value}
+clip_est:
+  type: "norm"
+  value: 100.0
+
+batch_size: 300
+inner_iter: 1000
+iter: 100
+num_sample_to_collect: 2000
+
+ema_flow:
+  use_ema: true
+  start_iter: 50
+  decay: 0.99999
+
+num_mc_samples: 4000
+bootstrap_step_size: 1e-2
+
+prioritized_buffer: null
+
+use_gt_sample: false
+
+loss_scaling: true
+
+lambda_conti: 1.0
+lambda_disc: 10.0
+
+flow_loss_type: "mse"
+
+clip_grad_norm: null
+clip_grad_norm_flow: null
+
+wandb:
+  tags:
+    - multi-befm

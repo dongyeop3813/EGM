@@ -1,0 +1,18 @@
+_target_: architectures.multi_modal.MultiModalStateFlow
+_partial_: true
+
+# Network parameters
+disc_embedding_dim: 4
+cont_embedding_dim: 32
+
+t_emb_dim: 64
+hidden_dim: 64
+
+use_residual_blocks: true
+use_layer_norm: false
+
+num_hidden_layers: 3
+num_res_blocks: 3
+
+act_fn: "GELU"
+

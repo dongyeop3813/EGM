@@ -1,0 +1,7 @@
+_target_: energy.ising.IsingModel
+
+# Energy parameters
+grid_size: 5
+J: 1.0  # Coupling constant
+h: 0.0  # External field
+inv_T: 0.2  # Inverse temperature

@@ -1,0 +1,24 @@
+# @package _global_
+
+defaults:
+  - /model: disc_mlp
+  - /energy: ising
+  - /optim: adam
+  - _self_
+
+train_fn:
+  _target_: train.disc_fm.train
+
+
+batch_size: 300
+epoch: 100000
+num_sample_to_collect: 2000
+
+num_mc_samples: 1000
+num_steps: 1000
+
+loss_type: mse
+
+wandb:
+  tags:
+    - disc-fm

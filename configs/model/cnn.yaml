@@ -1,0 +1,7 @@
+_target_: architectures.discrete_diffusion.CNNProbDenoiser
+_partial_: true
+
+# Network parameters
+hidden_dim: 32
+num_layers: 3
+use_batch_norm: true

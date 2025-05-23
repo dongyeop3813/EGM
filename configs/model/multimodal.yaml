@@ -1,0 +1,18 @@
+_target_: architectures.multi_modal.MultiModalDiffusionDrift
+_partial_: true
+
+# Embedding dimensions
+disc_embedding_dim: 4
+cont_embedding_dim: 64
+t_emb_dim: 64
+
+# MLP parameters
+use_residual_blocks: true
+num_res_blocks: 3
+num_hidden_layers: 6
+hidden_dim: 128
+act_fn: SiLU
+use_layer_norm: false
+
+# Drift prediction heads
+num_pred_layers: 2

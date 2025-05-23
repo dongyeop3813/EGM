@@ -1,0 +1,7 @@
+_target_: architectures.discrete_diffusion.FactorizedProbDenoiser
+_partial_: true
+
+# Network parameters
+hidden_dim: 32
+num_layers: 3
+tok_emb_dim: 8

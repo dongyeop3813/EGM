@@ -1,0 +1,4 @@
+_target_: energy.multi_mog.MultiMoG
+num_projs: 10
+sigma: 0.3
+mode_distance: 1.0

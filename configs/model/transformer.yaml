@@ -1,0 +1,10 @@
+_target_: architectures.discrete_diffusion.TransformerFactorizedProbDenoiser
+_partial_: true
+
+# Network parameters
+hidden_dim: 64
+num_layers: 3
+num_heads: 4
+dropout: 0.1
+
+tok_emb_dim: 4

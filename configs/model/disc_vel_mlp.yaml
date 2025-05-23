@@ -1,0 +1,6 @@
+_target_: architectures.discrete_diffusion.FactorizedVelocity
+_partial_: true
+
+# Network parameters
+hidden_dim: 32
+num_layers: 3

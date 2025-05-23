@@ -1,0 +1,7 @@
+_target_: architectures.conti_drift.FlowModel
+_partial_: true
+
+# Network parameters
+s_emb_dim: 32
+t_emb_dim: 32
+hidden_dim: 64

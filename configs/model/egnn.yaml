@@ -1,0 +1,11 @@
+_target_: architectures.conti_drift.EGNN_dynamics
+_partial_: true
+
+# Network parameters
+hidden_nf: 128
+n_layers: 5
+recurrent: false
+attention: true
+condition_time: true
+tanh: true
+agg: "sum"

@@ -1,0 +1,45 @@
+# @package _global_
+
+defaults:
+  - /model: multimodal
+  - /energy: rbm_six_modes
+  - /optim: adam
+  - _self_
+
+train_fn:
+  _target_: train.iefm_multimodal.train
+
+conti_prob_path: "VE"
+
+conti_prior_sigma: 1.0
+ve_sigma_max: 2.0
+ve_sigma_min: 1e-2
+
+num_steps: 1000
+clip_cont_vel: ${clip_est.value}
+
+clip_est:
+  type: "norm"
+  value: 20.0
+
+batch_size: 300
+inner_iter: 100
+iter: 100
+num_sample_to_collect: 2000
+
+num_mc_samples: 1000
+
+use_gt_sample: false
+prioritized_buffer: null
+
+lambda_conti: 1.0
+lambda_disc: 1.0
+
+solver_start_time: 0.01
+
+eval:
+  num_sample: 2000
+
+wandb:
+  tags:
+    - multi-iefm

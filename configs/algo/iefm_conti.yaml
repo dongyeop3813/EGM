@@ -1,0 +1,36 @@
+# @package _global_
+
+defaults:
+  - /model: egnn
+  - /energy: lj13
+  - /optim: adam
+  - _self_
+
+train_fn:
+  _target_: train.iefm_conti.train
+
+
+batch_size: 300
+inner_iter: 100
+iter: 100
+num_sample_to_collect: 2000
+
+conti_prob_path: "VE"
+ve_sigma_max: 3.0
+ve_sigma_min: 0.05
+
+num_mc_samples: 1000
+num_steps: 1000
+conti_prior_sigma: 1.0
+
+clip_est:
+  type: "vel"
+  value: 20.0
+
+prioritized_buffer: null
+
+use_gt_sample: false
+
+wandb:
+  tags:
+    - conti-iefm

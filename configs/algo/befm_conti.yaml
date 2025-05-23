@@ -1,0 +1,56 @@
+# @package _global_
+
+defaults:
+  - /model: egnn
+  - /energy: lj13
+  - /optim: adam
+
+  - /flow_model: conti_egnn_flow
+  - /optim@optim_flow: adam
+
+  - _self_
+
+train_fn:
+  _target_: train.befm_conti.train
+
+conti_prob_path: "cond_ot"
+solver_start_time: 0.01
+conti_prior_sigma: 1.0
+ve_sigma_max: 2.0
+ve_sigma_min: 1e-3
+
+num_steps: 1000
+
+clip_flow_est: 1000.0
+
+clip_est:
+  type: "vel"
+  value: 20.0
+
+batch_size: 64
+inner_iter: 100
+iter: 100
+num_sample_to_collect: 2000
+
+ema_flow:
+  use_ema: true
+  start_iter: 50
+  decay: 0.99999
+
+num_mc_samples: 1000
+flow_mc_samples: 4000
+
+bootstrap_step_size: 1e-2
+
+prioritized_buffer: null
+
+use_gt_sample: false
+
+flow_loss_type: "mse"
+
+clip_grad_norm: null
+clip_grad_norm_flow: 5.0
+
+wandb:
+  tags:
+    - conti-befm

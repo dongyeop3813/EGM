@@ -1,0 +1,65 @@
+# @package _global_
+
+defaults:
+  - /model: disc_mlp
+  - /flow_model: flow_model
+  - /energy: ising
+  - /optim: adam
+  - /optim@optim_flow: adam
+  - _self_
+
+train_fn:
+  _target_: train.befm_disc.train
+
+optim_flow:
+  lr: 1e-3
+
+lr_scheduler:
+  eta_min: 1e-4
+
+num_steps: 1000
+
+batch_size: 300
+inner_iter: 100
+iter: 100
+num_sample_to_collect: 2000
+
+num_mc_samples: 1000
+bootstrap_step_size: 1e-2
+
+lambda_flow: 1.0
+lambda_bootstrap_flow: 0.0
+lambda_bootstrap: 1.0
+lambda_simple: 0.0
+
+prioritized_buffer: null
+
+use_gt_sample: false
+
+flow_estimate_type: "flow"
+flow_proposal_type: "naive"
+
+estimate_type: "denoiser"
+
+bootstrap_estimate_type: "denoiser"
+bootstrap_proposal_type: "small_step"
+
+flow_loss_type: "mse"
+
+ema_flow:
+  use_ema: true
+  start_iter: 50
+  decay: 0.99999
+
+loss_scaling: false
+clip_grad_norm: null
+clip_grad_norm_flow: null
+
+scheduler:
+  type: "linear"
+
+lambda_schedule: false
+
+wandb:
+  tags:
+    - disc-befm
