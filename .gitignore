@@ -23,3 +23,7 @@ wandb
 # Virtual environments
 .venv
 .ipynb
+
+# Data
+!energy/rbm_params/*
+!energy/dw_cluster2/*
